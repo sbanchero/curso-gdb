@@ -1,5 +1,9 @@
 ----------------------------------------------------------
 -- Tablas especiales para gestión de datos espaciales
+--
+--	gpkg_contents
+-- 	gpkg_geometry_columns
+-- 
 ----------------------------------------------------------
 -- gpkg_contents: Instrucciones para registro de contenido 
 INSERT INTO gpkg_contents VALUES

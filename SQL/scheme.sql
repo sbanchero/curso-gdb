@@ -41,7 +41,8 @@ CREATE TABLE "Mediciones" (
 	 "Precipitacion_Pluviometrica" REAL, 
 	 "Humedad_Media" REAL, 
 	 "Evapotranspiracion_Potencial" REAL, 
-	 PRIMARY KEY (fecha, id_estacion)
+	 PRIMARY KEY (fecha, id_estacion),
+	 FOREIGN KEY (id_estacion) REFERENCES "Estaciones"
 );
 
 -- Departamentos
