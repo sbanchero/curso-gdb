@@ -1,4 +1,4 @@
-
+-- Estaciones
 CREATE TABLE "Estaciones" ( 
 	id_estacion TEXT NOT NULL primary key, 
 	"geom" MULTIPOINT, 
@@ -7,19 +7,14 @@ CREATE TABLE "Estaciones" (
 	"id_cuenca" INTEGER NOT NULL, 
 	"id_depto" INTEGER NOT NULL);
 
-CREATE TABLE IF NOT EXISTS "Estaciones" (
-    id_estacion integer NOT NULL primary key,
-    nombre character varying,
-    id_depto integer NOT NULL,
-    id_cuenca integer NOT NULL
-);
-
+-- Sensores
 CREATE TABLE IF NOT EXISTS "Sensores" (
     id_sensor integer NOT NULL PRIMARY KEY,
     marca character varying(50),
     tipo character varying
 );
 
+-- EstacionesTieneSensores
 CREATE TABLE IF NOT EXISTS "EstacionesTieneSensores" (
     id_estacion TEXT NOT NULL,
     id_sensor integer NOT NULL,
@@ -29,7 +24,7 @@ CREATE TABLE IF NOT EXISTS "EstacionesTieneSensores" (
     FOREIGN KEY (id_sensor) REFERENCES "Sensores"  	
 );
 
-
+-- Mediciones
 CREATE TABLE "Mediciones" (
 	 "id_estacion" TEXT NOT NULL,
 	 "Fecha" DATETIME  NOT NULL, 
@@ -49,18 +44,13 @@ CREATE TABLE "Mediciones" (
 	 PRIMARY KEY (fecha, id_estacion)
 );
 
--- Registrar una nueva tabla geo
+-- Departamentos
 CREATE TABLE "Departamentos" (
 	"id_depto" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
 	"geom" MULTIPOLYGON, 
 	"nombre" TEXT(80), 
 	"nombre_completo" TEXT(80))
 
-INSERT INTO gpkg_contents VALUES
-('Departamentos','features','Departamentos', '', '2023-09-23T19:34:13.463Z',-61.468, -34.141, -57.086, -30.066, 4326)
-
-INSERT INTO gpkg_geometry_columns VALUES
-('Departamentos','geom','MULTIPOLYGON', 4326,1,0)
 
 -- OBSERVADOR
 CREATE TABLE IF NOT EXISTS "Observadores" (
@@ -69,6 +59,3 @@ CREATE TABLE IF NOT EXISTS "Observadores" (
     apellido character varying(50)
 );
 
-INSERT INTO gpkg_contents
-("table_name", "data_type", "identifier", "description", "last_change", "min_x", "min_y", "max_x", "max_y", "srs_id") 
-VALUES ('EstacionesTieneSensores', 'attributes', 'EstacionesTieneSensores', '', '2023-09-23T19:34:13.462Z', NULL, NULL, NULL, NULL, 0);
