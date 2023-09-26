@@ -62,3 +62,11 @@ CREATE TABLE IF NOT EXISTS "Observadores" (
     apellido character varying(50)
 );
 
+CREATE TABLE "EstacionesObservadores" (
+    id_estacion TEXT NOT NULL,
+    id_observador integer NOT NULL,
+    fecha_revision DATETIME  NOT NULL, 
+	PRIMARY KEY (id_observador, id_estacion),
+    FOREIGN KEY (id_estacion) REFERENCES "Estaciones",
+    FOREIGN KEY (id_observador) REFERENCES "Observadores"  	
+);
