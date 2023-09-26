@@ -56,7 +56,7 @@ CREATE TABLE "Departamentos" (
 
 
 -- OBSERVADOR
-CREATE TABLE IF NOT EXISTS "Observadores" (
+CREATE TABLE "Observadores" (
     id_observador integer NOT NULL PRIMARY KEY,
     nombre character varying(50),
     apellido character varying(50)

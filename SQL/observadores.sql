@@ -1,3 +1,12 @@
+
+-- Registro de la tabla 
+INSERT INTO gpkg_contents VALUES ('Observadores','attributes','Observadores', '', '2023-09-23T19:34:13.463Z',null, null, null,null, 0)
+
+INSERT INTO gpkg_contents 
+(table_name, data_type, identifier, min_x, min_y,max_x, max_y,srs_id)
+VALUES
+('EstacionesObservadores','attributes','EstacionesObservadores', null, null, null,null, 0)
+
 INSERT INTO Observadores VALUES(1,'Juan',   'Martin');
 INSERT INTO Observadores VALUES(2,'Diego',  'Ezquivel');
 INSERT INTO Observadores VALUES(3,'Rafael', 'Rodriguez');
