@@ -58,3 +58,12 @@ GROUP BY 1,2
 ORDER BY 6 desc
 LIMIT 5
 
+-- 5) Bonus 
+SELECT 
+			date(Fecha, '-10 days') Fecha1,
+			date(Fecha) Fecha2,
+			sum(Precipitacion_Pluviometrica) as pp_acum_5d
+FROM Mediciones
+		WHERE id_estacion='NH0114'
+		  and strftime('%Y',Fecha)  = '2016'
+GROUP BY 1, 2

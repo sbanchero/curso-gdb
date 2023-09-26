@@ -5,7 +5,9 @@ CREATE TABLE "Estaciones" (
 	"Nombre" TEXT, 
 	"Descripcion" TEXT, 
 	"id_cuenca" INTEGER NOT NULL, 
-	"id_depto" INTEGER NOT NULL);
+	"id_depto" INTEGER NOT NULL,
+	FOREIGN KEY (id_cuenca) REFERENCES "Cuencas",
+    FOREIGN KEY (id_depto) REFERENCES "Departamentos");
 
 -- Sensores
 CREATE TABLE IF NOT EXISTS "Sensores" (
